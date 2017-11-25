@@ -19,7 +19,6 @@ def get_year(prompt):
 def get_all_paleodata(CE=False):
     continent = raw_input('1. enter continent: ').lower()
     ey = get_bool('2. set earliest year?: (True or False) ')
-    print ey
     if ey:
         earliest_year = get_year('2.5 enter earliest year needed: ')
     else:
