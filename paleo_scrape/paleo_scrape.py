@@ -116,11 +116,12 @@ def make_df():
         d['dataType'] = apiList[0]['dataType']
         d['most_recent_BP'] = apiList[0]['mostRecentYearBP']
         d['date'] = apiList[0]['contributionDate']
-        if apiList[0]['site'][0]['geo']['properties']['maxElevationMeters'] == apiList[0]['site'][0]['geo']['properties']['minElevationMeters']:
-            d['maxElevation'] = apiList[0]['site'][0]['geo']['properties']['maxElevationMeters']
-        else:
-            d['maxElevation'] = apiList[0]['site'][0]['geo']['properties']['maxElevationMeters']
-            d['minElevation'] = apiList[0]['site'][0]['geo']['properties']['minElevationMeters']
+        d['maxElevation'] = apiList[0]['site'][0]['geo']['properties']['maxElevationMeters']
+#         if apiList[0]['site'][0]['geo']['properties']['maxElevationMeters'] == apiList[0]['site'][0]['geo']['properties']['minElevationMeters']:
+#             d['maxElevation'] = apiList[0]['site'][0]['geo']['properties']['maxElevationMeters']
+#         else:
+#             d['maxElevation'] = apiList[0]['site'][0]['geo']['properties']['maxElevationMeters']
+#             d['minElevation'] = apiList[0]['site'][0]['geo']['properties']['minElevationMeters']
         list_coord = apiList[0]['site'][0]['geo']['geometry']['coordinates']
         list_coord = [x.encode('UTF8') for x in list_coord]
         d['xmlId'] = apiList[0]['xmlId']
