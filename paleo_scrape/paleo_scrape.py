@@ -103,6 +103,7 @@ def make_df():
     print_count = 0
     length = len(range(start,end))
     
+    print 'download starting...', '\n'
     for i in xmlid_list[start:end]:
         url = "https://www.ncdc.noaa.gov/paleo-search/study/search.json?xmlId={0}".format(i)
         
