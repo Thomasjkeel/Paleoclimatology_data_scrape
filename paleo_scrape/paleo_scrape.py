@@ -83,14 +83,14 @@ def list_studies():
 def make_df():
     xmlid_list = list_studies()
     # if connection times out:
-    start_bool = get_bool('5. set start of index? (True or False)')
+    start_bool = get_bool('5. set start of index? (True or False) ')
     if start_bool:
         start = int(raw_input('5.5 starting index (number): '))
         assert xmlid_list[start], "out of index"
     else:
         start = 0
 
-    end_bool = get_bool('6. set end of index? (True or False)')
+    end_bool = get_bool('6. set end of index? (True or False) ')
     if end_bool:
         end = int(raw_input('6.5 ending index (number): '))
         assert xmlid_list[end], "out of index"
