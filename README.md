@@ -5,4 +5,4 @@ Uses:
 - mapping of locations of study sites (latitude and longitude provided)
 - extraction of certain time periods (B.P.)
 
-
+![Alt text](/example_notebooks/example_paleo_map.png?raw=true "Optional Title")
