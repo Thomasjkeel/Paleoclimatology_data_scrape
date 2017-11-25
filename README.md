@@ -2,7 +2,7 @@
 Provides a way to extract paleoclimatology data from NOAA's National Centers for Environmental Information (NCEI)(see https://www.ncdc.noaa.gov/data-access/paleoclimatology-data/datasets).  
 
 ### Uses:
-- mapping of locations of study sites (latitude and longitude provided)
+- mapping of locations of study sites
 - extraction of certain time periods (B.P.)
 
 
