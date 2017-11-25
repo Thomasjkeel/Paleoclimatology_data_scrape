@@ -1,9 +1,5 @@
 import requests
-import pandas as pd
-
-
 import pandas
-import requests
 
 def get_bool(prompt):
     while True:
