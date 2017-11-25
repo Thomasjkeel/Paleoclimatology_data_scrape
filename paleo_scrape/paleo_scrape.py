@@ -60,7 +60,7 @@ def make_request(token=None):
     r = requests.get(url)
     response = r.json()
     num_studies = len(response['study'])
-    print '\n','total number of studies = %s'% num_studies
+    print '\n','total number of studies = %s'% num_studies, '\n'
     return response
 
 
