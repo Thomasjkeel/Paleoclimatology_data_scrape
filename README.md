@@ -4,3 +4,5 @@ Provides a way to extract paleoclimatology data from NOAA's National Centers for
 Uses:
 - mapping of locations of study sites (latitude and longitude provided)
 - extraction of certain time periods (B.P.)
+
+
