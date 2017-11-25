@@ -17,16 +17,16 @@ def get_year(prompt):
 
 
 def get_all_paleodata(CE=False):
-    continent = raw_input('enter continent: ').lower()
-    ey = get_bool('set earliest year?: (True or False) ')
+    continent = raw_input('1. enter continent: ').lower()
+    ey = get_bool('2. set earliest year?: (True or False) ')
     print ey
     if ey:
-        earliest_year = get_year('enter earliest year needed: ')
+        earliest_year = get_year('2.5 enter earliest year needed: ')
     else:
         earliest_year = None
-    ly = get_bool('set latest year?: (True or False) ')
+    ly = get_bool('3. set latest year?: (True or False) ')
     if ly:
-        latest_year = get_year('enter latest year needed: ')
+        latest_year = get_year('3.5 enter latest year needed: ')
     
     else:
         latest_year = None
@@ -57,7 +57,7 @@ def get_all_paleodata(CE=False):
 
 def make_request(token=None):
     url = get_all_paleodata()
-    print('getting data, please wait')
+    print('4. getting data, please wait')
     r = requests.get(url)
     response = r.json()
     num_studies = len(response['study'])
@@ -84,16 +84,16 @@ def list_studies():
 def make_df():
     xmlid_list = list_studies()
     # if connection times out:
-    start_bool = get_bool('set start of index? (True or False)')
+    start_bool = get_bool('5. set start of index? (True or False)')
     if start_bool:
-        start = int(raw_input('starting index (number): '))
+        start = int(raw_input('5.5 starting index (number): '))
         assert xmlid_list[start], "out of index"
     else:
         start = 0
 
-    end_bool = get_bool('set end of index? (True or False)')
+    end_bool = get_bool('6. set end of index? (True or False)')
     if end_bool:
-        end = int(raw_input('ending index (number): '))
+        end = int(raw_input('6.5 ending index (number): '))
         assert xmlid_list[end], "out of index"
         if start_bool:
             assert end > start, "end index before start index"
@@ -159,7 +159,7 @@ def make_df():
 
 def save_loc(prompt, df):
     while True:
-        save = get_bool('1. would you like to save data to csv? ')
+        save = get_bool('7. would you like to save data to csv? ')
         if save:
             save_location = raw_input(prompt)
             try:
@@ -172,7 +172,7 @@ def save_loc(prompt, df):
 
 def main():
     df = make_df()
-    save_loc('2. where to save: ', df)
+    save_loc('8. where to save: ', df)
     print(df.head())
     print '\n ', 'done!'
     return df
