@@ -84,7 +84,6 @@ def list_studies():
 def make_df():
     xmlid_list = list_studies()
     # if connection times out:
-    print '\n'
     start_bool = get_bool('set start of index? (True or False)')
     if start_bool:
         start = int(raw_input('starting index (number): '))
