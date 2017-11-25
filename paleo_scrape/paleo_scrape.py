@@ -142,11 +142,11 @@ def make_df():
                 x.append(x_val)
                 y.append(y_val)
         if counter == 2:
-            d['lat'] = y_val
-            d['lon'] = x_val
+            d['lon'] = y_val
+            d['lat'] = x_val
         else:
-            d['lat'] = y
-            d['lon'] = x
+            d['lon'] = y
+            d['lat'] = x
         full_list.append(d)
         print_count += 1
         print 'download starting...', '\n'
