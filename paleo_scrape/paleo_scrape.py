@@ -148,6 +148,7 @@ def make_df():
             d['lon'] = x
         full_list.append(d)
         print_count += 1
+        print 'download starting...', '\n'
         print 'status: %s%s %s out of %s' % ((float(print_count) / float(length)*100), '%', print_count, length)
         
         df = pandas.DataFrame(full_list)
