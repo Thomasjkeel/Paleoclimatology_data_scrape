@@ -8,4 +8,4 @@ Provides a way to extract paleoclimatology data from NOAA's National Centers for
 
 ### Example Map:
 
-![Alt text](/example_notebooks/example_paleo_map.png?raw=true "Optional Title")
+![Alt text](/example_notebooks/example_paleo_map.png?raw=true)
