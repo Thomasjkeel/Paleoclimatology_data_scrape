@@ -1,1 +1,4 @@
-
+matplotlib==3.0.0
+requests==2.12.4
+pandas==0.19.2
+mpl_toolkits.basemap==1.0.7
