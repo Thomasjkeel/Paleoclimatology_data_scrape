@@ -1,4 +1,4 @@
-matplotlib==3.0.0
-requests==2.20.0
-pandas==0.19.2
-mpl_toolkits.basemap==1.0.7
+matplotlib
+requests
+pandas
+mpl_toolkits.basemap
