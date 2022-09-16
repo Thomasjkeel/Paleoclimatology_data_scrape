@@ -4,20 +4,20 @@ import pandas
 def get_bool(prompt):
     while True:
         try:
-            return {"true":True, "t": True, "false":False, "f":False, "yes":True, "no":False, "y":True, "n":False}[raw_input(prompt).lower()]
+            return {"true":True, "t": True, "false":False, "f":False, "yes":True, "no":False, "y":True, "n":False}[input(prompt).lower()]
         except KeyError:
-            print "Invalid input, please enter True or False"
+            print("Invalid input, please enter True or False")
 
 def get_year(prompt):
     while True:
         try:
-            return int(raw_input(prompt))
+            return int(input(prompt))
         except:
-            print "Please enter a year"
+            print("Please enter a year")
 
 
 def get_all_paleodata(CE=False):
-    continent = raw_input('1. enter continent: ').lower()
+    continent = str(input('1. enter continent: ')).lower()
     ey = get_bool('2. set earliest year?: (True or False) ')
     if ey:
         earliest_year = get_year('2.5 enter earliest year needed: ')
@@ -60,7 +60,7 @@ def make_request(token=None):
     r = requests.get(url)
     response = r.json()
     num_studies = len(response['study'])
-    print '\n','total number of studies = %s'% num_studies, '\n'
+    print('\n','total number of studies = %s'% num_studies, '\n')
     return response
 
 
@@ -85,14 +85,14 @@ def make_df():
     # if connection times out:
     start_bool = get_bool('5. set start of index? (True or False) ')
     if start_bool:
-        start = int(raw_input('5.5 starting index (number): '))
+        start = int(input('5.5 starting index (number): '))
         assert xmlid_list[start], "out of index"
     else:
         start = 0
 
     end_bool = get_bool('6. set end of index? (True or False) ')
     if end_bool:
-        end = int(raw_input('6.5 ending index (number): '))
+        end = int(input('6.5 ending index (number): '))
         assert xmlid_list[end], "out of index"
         if start_bool:
             assert end > start, "end index before start index"
@@ -101,11 +101,11 @@ def make_df():
         end = len(xmlid_list)-1
     full_list = []
     print_count = 0
-    length = len(range(start,end))
+    length = len(list(range(start,end)))
     
-    print 'download starting...', '\n'
+    print('download starting...', '\n')
     for i in xmlid_list[start:end]:
-        url = "https://www.ncdc.noaa.gov/paleo-search/study/search.json?xmlId={0}".format(i)
+        url = "https://www.ncdc.noaa.gov/paleo-search/study/search.json?xmlId={0}".format(int(i))
         
         r = requests.get(url)
         response = r.json()
@@ -150,35 +150,35 @@ def make_df():
             d['lat'] = x
         full_list.append(d)
         print_count += 1
-        print 'download starting...', '\n'
-        print 'status: %s%s %s out of %s' % ((float(print_count) / float(length)*100), '%', print_count, length)
+        #print('download starting...', '\n')
+        #print('status: %s%s %s out of %s' % ((float(print_count) / float(length)*100), '%', print_count, length))
         
         df = pandas.DataFrame(full_list)
     try:
+        print('download complete...')
         return df
     except:
-        print '\n','no data returned'
+        print('\n','no data returned')
 
 def save_loc(prompt, df):
     while True:
         save = get_bool('7. would you like to save data to csv? ')
         if save:
-            save_location = raw_input(prompt)
+            save_location = input(prompt)
             try:
                 df.to_csv('%s.csv' % save_location, index=True)
                 return 'Successfully Saved!'
             except:
-                print 'please enter valid save location'
+                print('please enter valid save location')
         else:
             return
 
 def main():
     df = make_df()
     save_loc('8. where to save: ', df)
-    print(df.head())
-    print '\n ', 'done!'
+    print((df.head()))
+    print('\n ', 'done!')
     return df
 
 if __name__ == "__main__":
     main()
-
